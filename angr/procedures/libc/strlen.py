@@ -68,8 +68,4 @@ class strlen(angr.SimProcedure):
             self.max_null_index = max(i)
             self.state.add_constraints(*c)
             result = r - s
-            if result.depth > 3:
-                rresult = claripy.BVS('strlen', len(result))
-                self.state.solver.add(result == rresult)
-                result = rresult
             return result
